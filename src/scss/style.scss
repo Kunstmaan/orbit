@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   Stylesheet for all browsers
+
+   Never add styles directly to this file - set up imports
+   Style guide: https://github.com/necolas/idiomatic-css
+   ========================================================================== */
+
+/* Config
+========================================================================== */
+@import "config/config";
+
+/* Vendor
+========================================================================== */
+@import "vendor/vendor";
+
+/* General
+   ========================================================================== */
+// @import "general/general";
+
+/* Generic components
+   ========================================================================== */
+// @import "generic/generic";
+
+.title {
+    color: tomato;
+
+    @media(max-width: 400px) {
+        color: lime;
+    }
+}

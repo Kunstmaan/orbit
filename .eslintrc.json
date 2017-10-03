@@ -1,0 +1,39 @@
+{
+    "root": true,
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "extends": "airbnb-base",
+    "plugins": ["compat"],
+    "rules": {
+      "arrow-parens": ["error", "always"],
+      "comma-dangle": ["error", "never"],
+      "default-case": "off",
+      "indent": ["error", 4, { "SwitchCase": 1 }],
+      "linebreak-style": ["error", "unix"],
+      "max-len": ["error", 120, {"ignoreComments": true, "ignoreTemplateLiterals": true}],
+      "no-console": "off",
+      "no-use-before-define": ["error", {"functions": false, "classes": true}],
+      "no-trailing-spaces": ["error", {"skipBlankLines": true}],
+      "object-curly-spacing": ["error", "never"],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"],
+      "space-before-blocks": ["error", "always"],
+      "space-before-function-paren": ["error", "never"],
+  
+      "import/prefer-default-export": "off",
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": ["gulpfile.babel.js"]}],
+  
+      "compat/compat": "error"
+    },
+    "globals": {
+      "jQuery": true,
+      "$": true,
+      "module": true
+    }
+  }
+  

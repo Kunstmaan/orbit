@@ -97,6 +97,7 @@ Inky templating language is available, more info: [here](https://foundation.zurb
 - Style default mail
 - Cleanup
 - Add coding standards documentation
+- Auto generate changelog
 
 ## Contributing
 We love contributions! We've provide you with a [Contribution Guide](docs/contributing.md) to get you started.

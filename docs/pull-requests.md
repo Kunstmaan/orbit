@@ -102,7 +102,7 @@ git push --force origin BRANCH_NAME
 
 ### Make a Pull Request
 
-You can now make a pull request on the `Kunstmaan/KunstmaanBundlesCMS` GitHub repository.
+You can now make a pull request on the `Kunstmaan/orbit` GitHub repository.
 
 The pull request description must include the following checklist at the top
 to ensure that contributions may be reviewed without needless feedback
@@ -126,7 +126,7 @@ Some answers to the questions trigger some more requirements:
 
 * If you answer yes to "Bug fix?", check if the bug is already listed in the issues and reference it/them in "Fixed tickets";
 
-* If you answer yes to "New feature?", you must include documentation in your pull request. For small features that do not need a whole chapter, add a small snippet in the Cookbook section;
+* If you answer yes to "New feature?", you must include documentation in your pull request.
 
 * If you answer yes to "BC breaks?", the patch must contain updates to the relevant ``CHANGELOG`` file;
 

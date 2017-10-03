@@ -71,35 +71,9 @@ By default the build task builds all translations, you can build a specific mail
 By default the mail task sends a test mail of all .html files in the dist folder, you can send a specific mail by running this task with a language flag, i.e.: ```npm run mail --nl```
 
 ## Layout
-Orbit runs on twigjs 
-Inky templating language is available, more info: [here](https://foundation.zurb.com/emails/docs/inky.html)
-
-## Roadmap
-- ~~Add mailto task: sends an e-mail to a specified email address~~
-- Add flag to mail task for testing a specific language
-- Structure SCSS
-- Structure views
-- yeoman generator:
-    - prompt basic config (project name, litmus, hosting, mailservice)
-- Strip classes from html (except the ones used in media queries), is this still necessary?
-- Use juice to inline css
-- Test with production e-mails
-- Implement Litmus api when it's available
-- Implement overview page (browser opens on this page when running the start task):
-    - Links to all built emails
-    - Design
-    - ...
-- ~~Open source?~~
-    - ~~Add contribution info~~
-- Basic email components
-- Verify config (check if config file exists and filled in correctly)
-- Dead link checker 
-- Style default mail
-- Cleanup
-- Add coding standards documentation
-- Auto generate changelog
+Orbit has the twigjs templating language built in, also the Inky templating language is available, more info: [here](https://foundation.zurb.com/emails/docs/inky.html)
 
 ## Contributing
-We love contributions! We've provide you with a [Contribution Guide](docs/contributing.md) to get you started.
+We love contributions! You can take a look at our [Contribution Guide](docs/contributing.md) to get you started.
 If you're submitting a pull request, please follow the guidelines in the [Submitting pull requests](docs/pull-requests.md)
 documentation.

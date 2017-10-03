@@ -81,7 +81,7 @@ Inky templating language is available, more info: [here](https://foundation.zurb
 - Structure views
 - yeoman generator:
     - prompt basic config (project name, litmus, hosting, mailservice)
-- Strip classes from html (except the ones used in media queries)
+- Strip classes from html (except the ones used in media queries), is this still necessary?
 - Use juice to inline css
 - Test with production e-mails
 - Implement Litmus api when it's available
@@ -90,12 +90,15 @@ Inky templating language is available, more info: [here](https://foundation.zurb
     - Design
     - ...
 - ~~Open source?~~
-    - Add contribution info
+    - ~~Add contribution info~~
 - Basic email components
 - Verify config (check if config file exists and filled in correctly)
 - Dead link checker 
 - Style default mail
 - Cleanup
+- Add coding standards documentation
 
 ## Contributing
-
+We love contributions! We've provide you with a [Contribution Guide](docs/contributing.md) to get you started.
+If you're submitting a pull request, please follow the guidelines in the [Submitting pull requests](docs/pull-requests.md)
+documentation.

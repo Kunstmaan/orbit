@@ -9,5 +9,4 @@ Report your bug to in [the issue tracker at Github](https://github.com/Kunstmaan
 * Use the title field to clearly describe the issue;
 * Describe the steps needed to reproduce the bug with short code examples
   (providing a unit test or demo that illustrates the bug is best);
-* Give as much detail as possible about your environment (OS, PHP version,
-  Symfony version, CMS version, enabled extensions, ...);
+* Give as much detail as possible about your environment;

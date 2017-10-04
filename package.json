@@ -1,7 +1,7 @@
 {
   "name": "orbit",
-  "version": "1.0.0",
-  "description": "Basic template for a Foundation for Emails project.",
+  "version": "0.0.1",
+  "description": "Create emails with ease",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp startLocal",
@@ -10,7 +10,7 @@
     "test": "gulp test --production --test",
     "mail": "gulp sendMail --production --test"
   },
-  "author": "Kevin Fivé",
+  "author": "Kunstmaan",
   "license": "MIT",
   "dependencies": {
     "foundation-emails": "^2.2.1"

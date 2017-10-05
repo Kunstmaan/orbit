@@ -64,6 +64,8 @@ By default the build task builds all translations, you can build a specific mail
 - Sets the image base path to the specified ftp server
 - Sends a test of all mails to litmus
 
+Again you can test a specific version by adding a language flag ```npm run test -- --lang nl```
+
 ```npm run mail```
 - builds the mail
 - sends a test to a specified address in config.json

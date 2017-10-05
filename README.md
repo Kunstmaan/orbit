@@ -51,7 +51,7 @@ Create a config.json file in the root of your project based on this template:
 - Inlines css in html
 - Minifies images
 
-By default the build task builds all translations, you can build a specific mail by running this task with a language flag, i.e.: ```npm run build --nl```
+By default the build task builds all translations, you can build a specific mail by running this task with a language flag, i.e.: ```npm run build -- --lang nl```
 
 ```npm run zip```
 - Same as the build task but also creates a zip package of the html and images
@@ -68,7 +68,7 @@ By default the build task builds all translations, you can build a specific mail
 - builds the mail
 - sends a test to a specified address in config.json
 
-By default the mail task sends a test mail of all .html files in the dist folder, you can send a specific mail by running this task with a language flag, i.e.: ```npm run mail --nl```
+By default the mail task sends a test mail of all .html files in the dist folder, you can send a specific mail by running this task with a language flag, i.e.: ```npm run mail -- --lang nl```
 
 ## Layout
 Orbit has the twigjs templating language built in, also the Inky templating language is available, more info: [here](https://foundation.zurb.com/emails/docs/inky.html)

@@ -5,10 +5,10 @@
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp startLocal",
-    "build": "gulp buildOptimized --production",
-    "zip": "gulp createPackage --production",
-    "test": "gulp test --production --test",
-    "mail": "gulp sendMail --production --test"
+    "build": "gulp buildOptimized --production ",
+    "zip": "gulp createPackage --production ",
+    "test": "gulp test --production --test ",
+    "mail": "gulp sendMail --production --test "
   },
   "author": "Kunstmaan",
   "license": "MIT",

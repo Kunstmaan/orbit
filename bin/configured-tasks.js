@@ -91,7 +91,8 @@ export const litmus = createLitmusTask({
         url: projectConfig.litmus.url,
         applications: projectConfig.litmus.applications
     },
-    dest: './dist'
+    dest: './dist',
+    testSpecific: ARGUMENTS.TEST
 });
 
 export const mail = createMailTask({

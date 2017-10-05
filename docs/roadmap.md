@@ -1,7 +1,7 @@
 # Roadmap
 
 - ~~Add mailto task: sends an e-mail to a specified email address~~
-- Add flag to mail task for testing a specific language
+- ~~Add flag to mail task for testing a specific language~~
 - Structure SCSS
 - Structure views
 - yeoman generator:

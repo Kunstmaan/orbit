@@ -4,7 +4,6 @@ import inky from 'inky';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import rename from 'gulp-rename';
-import yargs from 'yargs';
 import path from 'path';
 import {get} from 'lodash';
 
@@ -14,7 +13,7 @@ export default function createTwigTask({src = undefined, dest = undefined, trans
 
         if (buildSpecific) {
             if (translations.indexOf(buildSpecific) > -1) {
-                buildTemplate(src, dest, `${transPath}${buildSpecific}.yaml`, lang, toTest, ftpPath);
+                buildTemplate(src, dest, `${transPath}${buildSpecific}.yaml`, buildSpecific, toTest, ftpPath);
             } else {
                 console.log(`No translations found for: ${buildSpecific}`);
             }

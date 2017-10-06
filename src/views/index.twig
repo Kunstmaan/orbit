@@ -1,13 +1,19 @@
-{% extends "layout/layout.twig" %}
+{% extends "layout/layout-overviewpage.twig" %}
 
 {% block content %}
-<container>
-    <row>
-        <columns>
-            <img src="{{ asset("logo.jpg") }}" alt="">
-            <h1 class="title">{{ "header.title"|trans }}</h1>
-            <button href="#" class="test-button">Button</button>
-        </columns>
-    </row>
-</container>
+    <header class="main-header">
+        <section class="main-header__content">
+            <h1>Orbit</h1>
+            <h2>Make emails with ease</h2>
+        </section>
+    </header>
+    <section class="mail-overview">
+        <div class="mail-overview__content">
+            <ul class="mail-overview__list">
+                {% for mail in mails %}
+                    <li><a href="{{ mail.href }}">{{ mail.lang }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
 {% endblock %}

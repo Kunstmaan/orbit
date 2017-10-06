@@ -10,23 +10,26 @@ import {get} from 'lodash';
 export default function createTwigTask({src = undefined, dest = undefined, transPath = undefined, buildSpecific = undefined, toTest = undefined, ftpPath = undefined}) {
     return function twig(done) {
         let translations = getTranslations(transPath);
+        const overViewPageSrc = src[0];
+        const mailsSrc = src[1];
 
         if (buildSpecific) {
             if (translations.indexOf(buildSpecific) > -1) {
-                buildTemplate(src, dest, `${transPath}${buildSpecific}.yaml`, buildSpecific, toTest, ftpPath);
+                buildTemplate(mailsSrc, dest, `${transPath}${buildSpecific}.yaml`, buildSpecific, toTest, ftpPath);
             } else {
                 console.log(`No translations found for: ${buildSpecific}`);
             }
         } else {
             for (let lang of translations) {
-                buildTemplate(src, dest, `${transPath}${lang}.yaml`, lang, toTest, ftpPath);
+                buildTemplate(mailsSrc, dest, `${transPath}${lang}.yaml`, lang, toTest, ftpPath);
             }
         }
+
+        buildOverview(overViewPageSrc, dest, translations); //@todo: refactor this
 
         done();
     };
 }
-
 function getTranslations(srcpath) {
     let translations = [];
 
@@ -37,11 +40,11 @@ function getTranslations(srcpath) {
     return translations;
 }
 
-function buildTemplate(src, dest, langFile, lang, hostImages, ftpPath) {
+function buildTemplate(mails, dest, langFile, lang, hostImages, ftpPath) {
     const doc = yaml.safeLoad(fs.readFileSync(langFile, 'utf8'));
     const baseImagePath = `img/${lang}/`;
 
-    return gulp.src(src)
+    return gulp.src(mails)
         .pipe(gulptwig({
             filters: [
                 {
@@ -66,9 +69,29 @@ function buildTemplate(src, dest, langFile, lang, hostImages, ftpPath) {
             ]
         }))
         .pipe(rename({
+            basename: 'mail',
             suffix: `-${lang}`,
             extname: '.html'
         }))
         .pipe(inky())
+        .pipe(gulp.dest(dest));
+}
+
+function buildOverview(src, dest, translations) {
+    let builds = [];
+
+    for (let translation of translations) {
+        builds.push({
+            "href": `mail-${translation}.html`,
+            "lang": translation
+        });
+    }
+
+    return gulp.src(src)
+        .pipe(gulptwig({
+            data: {
+                mails: builds
+            }
+        }))
         .pipe(gulp.dest(dest));
 }

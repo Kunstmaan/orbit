@@ -1,0 +1,13 @@
+{% extends "../layout/layout.twig" %}
+
+{% block content %}
+<container>
+    <row>
+        <columns>
+            <img src="{{ asset("logo.jpg") }}" alt="">
+            <h1 class="title">{{ "header.title"|trans }}</h1>
+            <button href="#" class="test-button">Button</button>
+        </columns>
+    </row>
+</container>
+{% endblock %}

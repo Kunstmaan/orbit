@@ -20,7 +20,7 @@ const projectConfig = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 export const clean = createCleanTask({target: './dist/'});
 
 export const twig = createTwigTask({
-    src: './src/views/*.twig',
+    src: ['./src/views/index.twig', './src/views/mail/*.twig'],
     dest: './dist/',
     transPath: './src/translations/',
     buildSpecific: ARGUMENTS.LANG,
@@ -29,7 +29,7 @@ export const twig = createTwigTask({
 });
 
 export const css = createCssTask({
-    src: './src/scss/style.scss',
+    src: './src/scss/*.scss',
     dest: './dist/css/',
     isProduction: ARGUMENTS.PRODUCTION
 });

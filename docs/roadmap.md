@@ -11,7 +11,7 @@
 - Test with production e-mails
 - Implement Litmus api when it's available
 - Implement overview page (browser opens on this page when running the start task):
-    - Links to all built emails
+    - ~~Links to all built emails~~
     - Design
     - ...
 - ~~Open source?~~

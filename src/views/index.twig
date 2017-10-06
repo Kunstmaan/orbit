@@ -7,4 +7,13 @@
             <h2>Make emails with ease</h2>
         </section>
     </header>
+    <section class="mail-overview">
+        <div class="mail-overview__content">
+            <ul class="mail-overview__list">
+                {% for mail in mails %}
+                    <li><a href="{{ mail.href }}">{{ mail.lang }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
 {% endblock %}

@@ -25,7 +25,7 @@ export default function createTwigTask({src = undefined, dest = undefined, trans
             }
         }
 
-        buildOverview(overViewPageSrc, dest); //@todo: refactor this
+        buildOverview(overViewPageSrc, dest, translations); //@todo: refactor this
 
         done();
     };
@@ -77,33 +77,21 @@ function buildTemplate(mails, dest, langFile, lang, hostImages, ftpPath) {
         .pipe(gulp.dest(dest));
 }
 
-function buildOverview(src, dest) {
-    const doc = yaml.safeLoad(fs.readFileSync(langFile, 'utf8'));
-    const baseImagePath = `img/${lang}/`;
+function buildOverview(src, dest, translations) {
+    let builds = [];
+
+    for (let translation of translations) {
+        builds.push({
+            "href": `mail-${translation}.html`,
+            "lang": translation
+        });
+    }
 
     return gulp.src(src)
         .pipe(gulptwig({
-            filters: [
-                {
-                    name: "trans",
-                    func: function(value) {
-                        return get(doc, value, value);
-                    }
-                }
-            ],
-            functions: [
-                {
-                    name: "asset",
-                    func: function (value) {
-                        if (hostImages) {
-                            return `${ftpPath}/${lang}/${value}`;
-                        } else {
-                            return `${baseImagePath}/${value}`;
-                        }
-
-                    }
-                }
-            ]
+            data: {
+                mails: builds
+            }
         }))
         .pipe(gulp.dest(dest));
 }

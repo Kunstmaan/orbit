@@ -25,7 +25,7 @@ export default function createTwigTask({src = undefined, dest = undefined, trans
             }
         }
 
-        buildOverview(overViewPageSrc, dest, translations); //@todo: refactor this
+        buildOverview(overViewPageSrc, mailsSrc, dest, translations); //@todo: refactor this
 
         done();
     };
@@ -42,7 +42,7 @@ function getTranslations(srcpath) {
 
 function buildTemplate(mails, dest, langFile, lang, hostImages, ftpPath) {
     const doc = yaml.safeLoad(fs.readFileSync(langFile, 'utf8'));
-    const baseImagePath = `img/${lang}/`;
+    const baseImagePath = `img/${lang}`;
 
     return gulp.src(mails)
         .pipe(gulptwig({
@@ -63,13 +63,12 @@ function buildTemplate(mails, dest, langFile, lang, hostImages, ftpPath) {
                         } else {
                             return `${baseImagePath}/${value}`;
                         }
-                        
+
                     }
                 }
             ]
         }))
         .pipe(rename({
-            basename: 'mail',
             suffix: `-${lang}`,
             extname: '.html'
         }))
@@ -77,15 +76,23 @@ function buildTemplate(mails, dest, langFile, lang, hostImages, ftpPath) {
         .pipe(gulp.dest(dest));
 }
 
-function buildOverview(src, dest, translations) {
+function buildOverview(src, mailsSrc, dest, translations) {
+    const mailDir = mailsSrc.split('*.twig')[0];
     let builds = [];
 
-    for (let translation of translations) {
-        builds.push({
-            "href": `mail-${translation}.html`,
-            "lang": translation
+    fs.readdir(mailDir, (err, files) => {
+        files.forEach(file => {
+            for (let translation of translations) {
+                console.log (file, translation);
+
+                builds.push({
+                    "href": `${file.split('.twig')[0]}-${translation}.html`,
+                    "name": file.split('.twig')[0],
+                    "lang": translation
+                });
+            }
         });
-    }
+    });
 
     return gulp.src(src)
         .pipe(gulptwig({

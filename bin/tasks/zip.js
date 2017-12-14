@@ -16,17 +16,12 @@ export default function createZipTask({src = undefined}) {
             const sourcePath = path.join(src, file);
             const fileName = path.basename(sourcePath, extension);
 
-            const moveHTML = gulp.src(sourcePath)
-                .pipe(rename(function(path) {
-                    path.dirname = fileName;
-
-                    return path;
-                }));
+            const moveHTML = gulp.src(sourcePath);
 
             const MoveImages = gulp.src(sourcePath)
                 .pipe(htmlSrc({ selector: 'img'}))
                 .pipe(rename(function(path) {
-                    path.dirname = fileName + path.dirname.replace('dist', '');
+                    path.dirname = path.dirname.replace('dist', '');
 
                     return path;
                 }));
@@ -34,7 +29,7 @@ export default function createZipTask({src = undefined}) {
             return merge(moveHTML, MoveImages)
                 .pipe(zip(`${fileName}.zip`))
                 .pipe(gulp.dest(src));
-        })
+        });
 
         function getHtmlFiles(dir) {
             return fs.readdirSync(dir)
